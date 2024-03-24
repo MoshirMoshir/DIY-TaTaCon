@@ -6,8 +6,16 @@ I am hoping to at least document what I've done here, update on future modificat
 Here is a cost analysis for now:
 - 1/2" 24"x48" panel of wood ~$25.90
 - Leonardo Arduino $24.99
-- 
+- Dupont Wires $6.98
+- Piezo Sensors $8.99
+- 1/4"-20tpi 2.5" Flat Head Machine Screws $5.52
+- Micro USB to USB cable ~$6.99
+  Total: ~79.37
+Optional
+- 1/4" Nuts $8.98
+- Rubber Washers $8.99
+- 1/8" 12"x36" Gum Rubber $23.75
 
 And if you don't have certain tools available, here's the approximate rental costs from my local Home Depot
--   Jigsaw ~$17 (You can probably get away with a manual saw but a jigsaw will make things a lot easier)
+-   Jigsaw ~$17 (You can probably get away with a handsaw but a jigsaw will make things a lot easier)
 -   Drill ~$16
