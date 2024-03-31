@@ -7,7 +7,7 @@ I am hoping to at least document what I've done here, update on future modificat
 So far I have made two TaTaCons, one big that simulates the TaikoForce and Arcade best, and one small that is more conveniant to take around and fit in a backpack or luggage.
 
 ### The Big TaTaCon
-![Big TaTaCon](Big_TaTaCon.jpg)
+![Big TaTaCon](images/Big_TaTaCon.jpg)
 > Later, I added gum rubber over the black foam, in the future, I would probably just omit the black foam, though it does look cool
 
 ### The Small TaTaCon
