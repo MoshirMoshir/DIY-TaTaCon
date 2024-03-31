@@ -4,7 +4,7 @@ Recently I have made a custom DIY TaTaCon, similar to the TaikoForce but at a fr
 I am hoping to at least document what I've done here, update on future modifications, as well as put down ideas and alternative builds that I come up with. 
 
 ## Showcase
-So far I have made two TaTaCons, one big that simulates the TaikoForce and Arcade best, and one small that is more conveniant to take around and fit in a backpack or luggage.
+So far I have made two TaTaCons, one big that simulates the TaikoForce and Arcade best, and one small that is more convenient to take around and fit in a backpack or luggage.
 
 ### The Big TaTaCon
 ![Big TaTaCon](images/Big_TaTaCon.jpg)
