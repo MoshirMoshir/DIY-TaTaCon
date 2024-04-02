@@ -14,4 +14,5 @@ So far I have made two TaTaCons, one big that simulates the TaikoForce and Arcad
 > Later, I added gum rubber over the black foam, in the future, I would probably just omit the black foam, though it does look cool
 
 ### The Small TaTaCon
-> Right now it's still in the works. I'll upload the image once it's done
+![Small TaTaCon](images/Small_TaTaCon.jpg)
+> The Bottom Panel is blank so I can add a keypad for switch controls later if I want
