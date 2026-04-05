@@ -1,0 +1,44 @@
+---
+title: "Step 6 - Final Touches"
+stepNumber: 6
+shortTitle: "Finish"
+description: "Add the gum rubber drum surface and build or attach a stand."
+heroImage: "Cutting_Rubber.jpg"
+order: 6
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import cuttingRubberImg from "../../assets/images/Cutting_Rubber.jpg";
+import bigAssembleImg from "../../assets/images/Big_Assemble.jpg";
+import standImg from "../../assets/images/stand.jpg";
+
+You're almost done fully building the TaTaCon! The last two things are the **stand** and the **cover**.
+
+## Drum Surface
+
+Although I have heard of ways of getting official drum skin, I recommend **gum rubber** — it's the same material used on practice drum pads. You can purchase them on Amazon, and then just cut them to size. I recommend **1/4" thickness**, but 1/8" works too.
+
+Once you cut them, you can just glue them on. You can use superglue, epoxy, whatever glue that works with rubber and wood.
+
+<Image src={cuttingRubberImg} alt="Cutting gum rubber to size" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+
+---
+
+## Stand Options
+
+You can either cut out wood that elevates and angles the drum accordingly, or, if the TaTaCon is small, you can just order a laptop stand — then it's also adjustable!
+
+<div class="my-6 grid gap-4 sm:grid-cols-2">
+  <div>
+    <Image src={bigAssembleImg} alt="Custom wood stand for the big TaTaCon" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Wood stands I cut for the big TaTaCon (visible on the right)</p>
+  </div>
+  <div>
+    <Image src={standImg} alt="Laptop stand for the small TaTaCon" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Laptop stand for the small TaTaCon</p>
+  </div>
+</div>
+
+<Callout type="warning">
+  If using a laptop stand, make sure it's **metal and not plastic** — plastic is too flimsy.
+</Callout>

@@ -1,0 +1,57 @@
+---
+title: "Step 2 - Cutting the Wood"
+stepNumber: 2
+shortTitle: "Cut Wood"
+description: "Measure, mark, and cut your wood panels into the Don and Ka pieces."
+heroImage: "Wood_Cut.jpg"
+order: 2
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import bigWoodCutImg from "../../assets/images/Big_Wood_Cut.jpg";
+import woodMeasureImg from "../../assets/images/Wood_Measure.jpg";
+import woodCutImg from "../../assets/images/Wood_Cut.jpg";
+
+After you've gotten the wood, you'll need to cut it into the right pieces. You'll need to cut one backplate, and then the 2 Ka's and Don's.
+
+## Drawing the Cut Lines
+
+First, draw out the lines on one side of the wood to help guide your cuts. You'll need to draw two perfect(-ish) circles of the diameter you chose.
+
+<Callout type="tip">
+  If you don't have any specific tools to do this, my genius idea is to get something like a cardboard box, cut a long stripe of it off, measure out the radius (half the diameter) of the circle along the stripe and poke a hole on both ends. Then, stick something on one end through the cardboard at the center of the circle on your panel, then use a sharpie on the other end and draw your circle.
+</Callout>
+
+You should now have your two circles drawn out. Next is splitting one of the circles into your Ka's and Don's. Use a tool or the same method as above to measure out and draw each part.
+
+<Callout type="note">
+  It is recommended to have a decent enough space between the Ka's and Don's, as well as to leave out the bottom portion of the drum since you'll unlikely hit there and you'll be able to use that area for a keypad for more controls later if you desire.
+</Callout>
+
+Here are blueprints of what mine looked like:
+
+<div class="my-6 grid gap-4 sm:grid-cols-2">
+  <div>
+    <Image src={bigWoodCutImg} alt="Measurements for big TaTaCon" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Big TaTaCon measurements</p>
+  </div>
+  <div>
+    <Image src={woodMeasureImg} alt="Measurements for small TaTaCon" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Small TaTaCon measurements</p>
+  </div>
+</div>
+
+---
+
+## Making the Cuts
+
+After drawing out the lines to cut, you now have to cut the wood! Use a jigsaw if you were able to get one, or a handsaw to cut the circles out and then cut one of them further into each Ka and Don.
+
+<Callout type="warning">
+  Be extremely careful not to injure yourself, nor cut through the surface you're cutting on such as a table.
+</Callout>
+
+Once you have completed the cuts, you can further sand the edges if you would like to smoothen them out. You should end with **5 pieces of wood** per TaTaCon: 2 Dons, 2 Kas, 1 backplate.
+
+<Image src={woodCutImg} alt="Cut wood pieces for the small TaTaCon" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+<p class="mt-2 text-sm text-center italic text-ctp-subtext0">Cut wood pieces (ignore holes for now, we'll cover that next)</p>

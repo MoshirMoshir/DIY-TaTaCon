@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import bigTataCon from "../assets/images/Big_TaTaCon.jpg";
+---
+
+<section class="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <Image
+      src={bigTataCon}
+      alt=""
+      widths={[800, 1200, 1920]}
+      sizes="100vw"
+      class="h-full w-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-ctp-base/70 via-ctp-base/60 to-ctp-base"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6">
+    <h1
+      class="animate-fade-in-up text-4xl font-extrabold tracking-tight text-ctp-text opacity-0 sm:text-5xl lg:text-6xl"
+    >
+      DIY <span class="text-ctp-peach">TaTaCon</span>
+    </h1>
+    <p
+      class="animate-fade-in-up animate-delay-100 mx-auto mt-4 max-w-2xl text-lg text-ctp-subtext0 opacity-0 sm:text-xl"
+    >
+      Build your own taiko drum controller at a fraction of the cost.
+      Better than Amazon knockoffs, cheaper than a TaikoForce.
+    </p>
+    <div class="animate-fade-in-up animate-delay-200 mt-8 flex flex-col items-center justify-center gap-4 opacity-0 sm:flex-row">
+      <a
+        href="/guide/"
+        class="inline-flex items-center gap-2 rounded-full bg-ctp-mauve px-6 py-3 text-sm font-semibold text-ctp-base transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-ctp-mauve/25"
+      >
+        Start Building
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <a
+        href="/costs/"
+        class="inline-flex items-center gap-2 rounded-full border border-ctp-surface1 px-6 py-3 text-sm font-semibold text-ctp-text transition-all duration-200 hover:border-ctp-surface2 hover:bg-ctp-surface0"
+      >
+        View Costs
+      </a>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="animate-fade-in-up animate-delay-300 mt-12 grid grid-cols-3 gap-4 opacity-0 sm:gap-6">
+      <div class="rounded-xl border border-ctp-surface1/30 bg-ctp-base/40 px-3 py-4 backdrop-blur-sm sm:px-5">
+        <div class="text-xl font-bold text-ctp-peach sm:text-2xl">~$100</div>
+        <div class="mt-0.5 text-xs text-ctp-subtext0 sm:text-sm">Starting cost</div>
+      </div>
+      <div class="rounded-xl border border-ctp-surface1/30 bg-ctp-base/40 px-3 py-4 backdrop-blur-sm sm:px-5">
+        <div class="text-xl font-bold text-ctp-green sm:text-2xl">~7+ hrs</div>
+        <div class="mt-0.5 text-xs text-ctp-subtext0 sm:text-sm">Time investment</div>
+      </div>
+      <div class="rounded-xl border border-ctp-surface1/30 bg-ctp-base/40 px-3 py-4 backdrop-blur-sm sm:px-5">
+        <div class="text-xl font-bold text-ctp-blue sm:text-2xl">PC + Switch</div>
+        <div class="mt-0.5 text-xs text-ctp-subtext0 sm:text-sm">Compatible</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ctp-overlay0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </div>
+</section>

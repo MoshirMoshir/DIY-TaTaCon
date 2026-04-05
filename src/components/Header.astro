@@ -1,0 +1,103 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/guide/", label: "Build Guide" },
+  { href: "/costs/", label: "Costs" },
+  { href: "/resources/", label: "Resources" },
+  { href: "/shop/", label: "Shop" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="fixed top-0 right-0 left-0 z-50 border-b border-ctp-surface0 bg-ctp-mantle/80 backdrop-blur-md"
+>
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-lg font-bold text-ctp-text transition-colors hover:text-ctp-mauve">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ctp-peach" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="1.5" />
+      </svg>
+      <span class="hidden sm:inline">DIY TaTaCon</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden items-center gap-6 md:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "text-sm font-medium transition-colors duration-200",
+            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+              ? "text-ctp-mauve"
+              : "text-ctp-subtext0 hover:text-ctp-text",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <ThemeToggle />
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="flex items-center md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ctp-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line class="menu-line-1" x1="3" y1="6" x2="21" y2="6" />
+        <line class="menu-line-2" x1="3" y1="12" x2="21" y2="12" />
+        <line class="menu-line-3" x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-ctp-surface0 bg-ctp-mantle md:hidden"
+  >
+    <div class="flex flex-col gap-1 px-4 py-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+              ? "bg-ctp-surface0 text-ctp-mauve"
+              : "text-ctp-subtext0 hover:bg-ctp-surface0 hover:text-ctp-text",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="mt-2 flex justify-center border-t border-ctp-surface0 pt-3">
+        <ThemeToggle />
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", () => {
+      const isOpen = !menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", String(!isOpen));
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener("astro:after-swap", initMobileMenu);
+</script>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  vertical?: boolean;
+}
+
+const { src, title, vertical = false } = Astro.props;
+---
+
+<div class="group relative overflow-hidden rounded-xl border border-ctp-surface0 bg-ctp-mantle">
+  <div class={`relative ${vertical ? "aspect-[9/16] max-h-[500px] mx-auto" : "aspect-video"}`}>
+    <video
+      class="h-full w-full object-contain bg-ctp-crust"
+      controls
+      preload="metadata"
+      title={title}
+    >
+      <source src={src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="px-4 py-3">
+    <p class="text-sm font-medium text-ctp-subtext1">{title}</p>
+  </div>
+</div>

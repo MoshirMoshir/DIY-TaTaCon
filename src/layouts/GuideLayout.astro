@@ -1,0 +1,96 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import StepNav from "../components/StepNav.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+  currentOrder: number;
+}
+
+const { title, description, currentOrder } = Astro.props;
+
+const allSteps = await getCollection("guide");
+const sortedSteps = allSteps.sort((a, b) => a.data.order - b.data.order);
+
+const currentIndex = sortedSteps.findIndex((s) => s.data.order === currentOrder);
+const prevStep = currentIndex > 0 ? sortedSteps[currentIndex - 1] : null;
+const nextStep = currentIndex < sortedSteps.length - 1 ? sortedSteps[currentIndex + 1] : null;
+---
+
+<BaseLayout title={`${title} | DIY TaTaCon`} description={description}>
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="flex gap-8 lg:gap-12">
+      <!-- Sidebar (desktop) -->
+      <aside class="hidden w-56 shrink-0 lg:block">
+        <nav class="sticky top-24">
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-ctp-overlay0">
+            Build Guide
+          </h3>
+          <ul class="space-y-1">
+            {sortedSteps.map((step) => (
+              <li>
+                <a
+                  href={`/guide/${step.id}/`}
+                  class:list={[
+                    "flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors",
+                    step.data.order === currentOrder
+                      ? "bg-ctp-surface0 font-medium text-ctp-mauve"
+                      : "text-ctp-subtext0 hover:bg-ctp-surface0 hover:text-ctp-text",
+                  ]}
+                >
+                  <span class:list={[
+                    "flex h-5 w-5 shrink-0 items-center justify-center rounded text-xs font-bold",
+                    step.data.order === currentOrder
+                      ? "bg-ctp-mauve text-ctp-base"
+                      : "bg-ctp-surface1 text-ctp-subtext0",
+                  ]}>
+                    {step.data.stepNumber}
+                  </span>
+                  <span class="truncate">{step.data.shortTitle}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-6 border-t border-ctp-surface0 pt-4">
+            <a
+              href="/costs/"
+              class="block rounded-lg px-3 py-1.5 text-sm text-ctp-subtext0 transition-colors hover:bg-ctp-surface0 hover:text-ctp-text"
+            >
+              Material Costs
+            </a>
+            <a
+              href="/resources/"
+              class="block rounded-lg px-3 py-1.5 text-sm text-ctp-subtext0 transition-colors hover:bg-ctp-surface0 hover:text-ctp-text"
+            >
+              Resources
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="min-w-0 flex-1">
+        <!-- Mobile step indicator -->
+        <div class="mb-6 flex items-center gap-2 lg:hidden">
+          <a href="/guide/" class="text-sm text-ctp-blue hover:text-ctp-sapphire">Guide</a>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-ctp-overlay0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          <span class="text-sm text-ctp-subtext0">{title}</span>
+        </div>
+
+        <div class="prose max-w-none">
+          <slot />
+        </div>
+
+        <StepNav
+          prev={prevStep ? { title: prevStep.data.title, href: `/guide/${prevStep.id}/` } : undefined}
+          next={nextStep ? { title: nextStep.data.title, href: `/guide/${nextStep.id}/` } : undefined}
+        />
+      </article>
+    </div>
+  </div>
+</BaseLayout>

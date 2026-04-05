@@ -1,0 +1,45 @@
+---
+title: "Step 5 - Putting Everything Together"
+stepNumber: 5
+shortTitle: "Assembly"
+description: "Assemble all the pieces and attach piezo sensors to the front plates."
+heroImage: "Assembly.jpg"
+order: 5
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import glueingImg from "../../assets/images/Glueing.jpg";
+import assemblyImg from "../../assets/images/Assembly.jpg";
+import bigAssembleImg from "../../assets/images/Big_Assemble.jpg";
+
+Now we can start attaching everything together. You already know how to attach the front plates to the backplate with the nuts and bolts, but before you do, you need to attach the piezo sensors to the front plates.
+
+## Attaching Sensors
+
+Each front plate should get a piezo sensor either taped or glued (hot glue works great, but I just used electrical tape) around the areas where you think you'll hit — or approximate center.
+
+<Image src={glueingImg} alt="Piezo sensors taped to front plates" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+<p class="mt-2 text-sm text-center italic text-ctp-subtext0">Piezo sensors taped to the small TaTaCon front plates</p>
+
+---
+
+## Mounting the Arduino
+
+The Arduino can go between the front and backplate. I personally screwed mine into the backplate, but you can probably just tape it too — as long as it doesn't move or fall out, which would disconnect the sensors.
+
+<Callout type="tip">
+  I also drilled a hole in the backplate to slot the USB wire through to connect to the computer or Switch.
+</Callout>
+
+Here's what they should look like assembled:
+
+<div class="my-6 grid gap-4 sm:grid-cols-2">
+  <div>
+    <Image src={assemblyImg} alt="Small TaTaCon assembled" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Small TaTaCon assembled</p>
+  </div>
+  <div>
+    <Image src={bigAssembleImg} alt="Big TaTaCon assembled" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Big TaTaCon assembled</p>
+  </div>
+</div>

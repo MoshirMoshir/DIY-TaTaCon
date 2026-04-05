@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | DIY TaTaCon"
+  description="The page you're looking for doesn't exist."
+>
+  <div class="flex flex-1 items-center justify-center px-4 py-20">
+    <div class="text-center">
+      <div class="text-6xl font-extrabold text-ctp-surface2">404</div>
+      <h1 class="mt-4 text-2xl font-bold text-ctp-text">Page not found</h1>
+      <p class="mt-2 text-ctp-subtext0">
+        Looks like this drum hit didn't register.
+      </p>
+      <a
+        href="/"
+        class="mt-6 inline-flex items-center gap-2 rounded-full bg-ctp-mauve px-5 py-2.5 text-sm font-semibold text-ctp-base transition-all hover:scale-105"
+      >
+        Back to Home
+      </a>
+    </div>
+  </div>
+</BaseLayout>

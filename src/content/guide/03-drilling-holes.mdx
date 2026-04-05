@@ -1,0 +1,48 @@
+---
+title: "Step 3 - Drilling the Holes"
+stepNumber: 3
+shortTitle: "Drill"
+description: "Drill mounting holes for screws to attach the front plates to the backplate."
+heroImage: "Wood_Cut.jpg"
+order: 3
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import woodCutImg from "../../assets/images/Wood_Cut.jpg";
+import wiresImg from "../../assets/images/Wires.jpg";
+import washersImg from "../../assets/images/Washers.jpg";
+
+Now you need to drill some holes for the screws. Theoretically, you could just glue stands directly from the Dons and Kas to attach them to the backplate, but screws have the advantage of better stability, easier fixing, and easy access to the electronics in case something goes wrong.
+
+## Drilling Strategy
+
+I recommend having **3 points of contact** for both the Dons and Kas, meaning 12 screws total. You can change accordingly — my small TaTaCon Kas only used 2, so 10 screws total.
+
+<Callout type="tip">
+  When drilling, you should drill the holes with the Dons and Kas plates **on** the backplate, and drill all the way through them both. This way the holes are guaranteed to align. Just make sure you clamp or hold them down while you drill so they don't shift.
+</Callout>
+
+<Callout type="note">
+  Notice how I drilled a bigger hole halfway into each hole — this is so the head of the screw will lay flat against the wood so when we glue on the rubber, there won't be bumps.
+</Callout>
+
+<Image src={woodCutImg} alt="Drilled holes in wood pieces" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+
+---
+
+## Attaching the Hardware
+
+At this point, you can slot in the screws and use a nut to secure the front plates to the backplate. I also tried adding rubber washers between them to help reduce vibrations, but I honestly don't think they help much.
+
+<div class="my-6 grid gap-4 sm:grid-cols-2">
+  <div>
+    <Image src={wiresImg} alt="Screws attached to front plate" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Screws attached to front plate</p>
+  </div>
+  <div>
+    <Image src={washersImg} alt="Screws fully assembled with washers and nuts" widths={[400, 700]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Fully assembled with washers and nuts</p>
+  </div>
+</div>
+
+Eventually, we'll attach the front plates to the back plates with another rubber washer, nut, and more nuts on the other side to secure them.

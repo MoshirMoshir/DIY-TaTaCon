@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const firmwareOptions = [
+  {
+    name: "LuiCat's ArduinoTaikoController",
+    url: "https://github.com/LuiCat/ArduinoTaikoController",
+    description: "The original Arduino-based taiko controller firmware. Well-documented with broad community usage.",
+  },
+  {
+    name: "judjdigj's LeonardoTaiko",
+    url: "https://github.com/judjdigj/LeonardoTaiko",
+    description: "An improved and well-developed firmware. Recommended for a polished experience.",
+  },
+  {
+    name: "Moshir's Custom Firmware",
+    url: "https://github.com/MoshirMoshir/DIY-TaTaCon/tree/main/firmware",
+    description: "My custom firmware with dynamic threshold adjustment and per-sensor calibration. Work-in-progress.",
+  },
+];
+
+const tools = [
+  {
+    name: "Arduino IDE",
+    url: "https://www.arduino.cc/en/software",
+    description: "Required to compile and upload firmware to your Arduino board.",
+  },
+];
+
+const community = [
+  {
+    name: "Cons&Stuff Discord",
+    url: "https://discord.com/invite/fknwz8s",
+    description: "The hub for all DIY controllers. Great place to ask questions with knowledgeable people.",
+  },
+  {
+    name: "GitHub Issues",
+    url: "https://github.com/MoshirMoshir/DIY-TaTaCon/issues",
+    description: "Ask questions, report problems, or share your build.",
+  },
+  {
+    name: "GitHub Repository",
+    url: "https://github.com/MoshirMoshir/DIY-TaTaCon",
+    description: "Source code, firmware files, and project documentation.",
+  },
+];
+---
+
+<BaseLayout
+  title="Resources | DIY TaTaCon"
+  description="Firmware options, tools, and community resources for building your own TaTaCon."
+>
+  <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+    <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+      Resources
+    </h1>
+    <p class="mt-3 text-ctp-subtext0">
+      Firmware options, tools, and links to help with your build.
+    </p>
+
+    <!-- Firmware -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-ctp-text">Firmware Options</h2>
+      <div class="mt-4 space-y-4">
+        {firmwareOptions.map((fw) => (
+          <a
+            href={fw.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl border border-ctp-surface0 bg-ctp-mantle p-5 transition-all duration-200 hover:border-ctp-surface1 hover:shadow-md"
+          >
+            <div class="flex items-start justify-between">
+              <h3 class="font-semibold text-ctp-text group-hover:text-ctp-mauve transition-colors">
+                {fw.name}
+              </h3>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ctp-overlay0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </div>
+            <p class="mt-1 text-sm text-ctp-subtext0">{fw.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-ctp-text">Software Tools</h2>
+      <div class="mt-4 space-y-4">
+        {tools.map((tool) => (
+          <a
+            href={tool.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl border border-ctp-surface0 bg-ctp-mantle p-5 transition-all duration-200 hover:border-ctp-surface1 hover:shadow-md"
+          >
+            <div class="flex items-start justify-between">
+              <h3 class="font-semibold text-ctp-text group-hover:text-ctp-mauve transition-colors">
+                {tool.name}
+              </h3>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ctp-overlay0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </div>
+            <p class="mt-1 text-sm text-ctp-subtext0">{tool.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Community -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-ctp-text">Community</h2>
+      <div class="mt-4 space-y-4">
+        {community.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl border border-ctp-surface0 bg-ctp-mantle p-5 transition-all duration-200 hover:border-ctp-surface1 hover:shadow-md"
+          >
+            <div class="flex items-start justify-between">
+              <h3 class="font-semibold text-ctp-text group-hover:text-ctp-mauve transition-colors">
+                {link.name}
+              </h3>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-ctp-overlay0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </div>
+            <p class="mt-1 text-sm text-ctp-subtext0">{link.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

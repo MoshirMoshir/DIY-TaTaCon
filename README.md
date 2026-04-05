@@ -1,18 +1,31 @@
 # DIY TaTaCon
-Recently I have made a custom DIY TaTaCon, similar to the TaikoForce but at a fraction of the cost (If you're fine with the DIY style lol). 
-> Don't expect the same quality as you would from the Taiko Force, but in my opinion, it is an insanely better alternative to the TaTaCons that you find on amazon and of course much cheaper than getting a TaikoForce.
-I am hoping to at least document what I've done here, update on future modifications, as well as put down ideas and alternative builds that I come up with.
 
+Build your own taiko drum controller at a fraction of the cost. Better than Amazon knockoffs, cheaper than a TaikoForce.
 
-To begin, please go to [Getting Started](https://github.com/MoshirMoshir/DIY-TaTaCon/wiki/Getting-Started) in this repository's GitHub wiki.
+**[View the full guide →](https://tatacon.moshir.dev)**
 
-## Showcase
-So far I have made two TaTaCons, one big that simulates the TaikoForce and Arcade best, and one small that is more convenient to take around and fit in a backpack or luggage.
+## About
 
-### The Big TaTaCon
-![Big TaTaCon](images/Big_TaTaCon.jpg)
-> Later, I added gum rubber over the black foam, in the future, I would probably just omit the black foam, though it does look cool
+This is a step-by-step guide to building a custom DIY TaTaCon using wood panels, piezo sensors, and an Arduino. Two build sizes documented:
 
-### The Small TaTaCon
-![Small TaTaCon](images/Small_TaTaCon.jpg)
-> The Bottom Panel is blank so I can add a keypad for switch controls later if I want
+- **Big TaTaCon** — 18" diameter, simulates the arcade/TaikoForce experience (~$121)
+- **Small TaTaCon** — 12" diameter, portable and fits on a laptop stand (~$102)
+
+## Tech Stack
+
+Built with [Astro](https://astro.build), styled with [Tailwind CSS](https://tailwindcss.com) and [Catppuccin](https://catppuccin.com) themes.
+
+## Development
+
+```bash
+npm install
+npm run dev      # Start dev server at localhost:4321
+npm run build    # Build for production
+npm run preview  # Preview production build
+```
+
+## License
+
+Firmware files include code from:
+- [progmem's Switch-Fightstick](https://github.com/progmem/Switch-Fightstick) (Joystick/HID)
+- [LUFA Library](https://github.com/abcminiuser/lufa) by Dean Camera (HID constants)

@@ -1,0 +1,25 @@
+---
+interface Props {
+  type?: "tip" | "warning" | "note";
+}
+
+const { type = "note" } = Astro.props;
+
+const styles = {
+  tip: { border: "border-ctp-green", bg: "bg-ctp-green/10", icon: "💡", label: "Tip" },
+  warning: { border: "border-ctp-red", bg: "bg-ctp-red/10", icon: "⚠️", label: "Warning" },
+  note: { border: "border-ctp-blue", bg: "bg-ctp-blue/10", icon: "ℹ️", label: "Note" },
+};
+
+const style = styles[type];
+---
+
+<div class={`my-4 rounded-lg border-l-4 ${style.border} ${style.bg} p-4`}>
+  <div class="flex items-start gap-2">
+    <span class="text-sm">{style.icon}</span>
+    <div class="text-sm text-ctp-subtext1">
+      <span class="font-semibold text-ctp-text">{style.label}:</span>
+      <slot />
+    </div>
+  </div>
+</div>

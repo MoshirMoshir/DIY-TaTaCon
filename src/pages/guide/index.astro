@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StepCard from "../../components/StepCard.astro";
+import { getCollection } from "astro:content";
+
+const allSteps = await getCollection("guide");
+const sortedSteps = allSteps.sort((a, b) => a.data.order - b.data.order);
+
+// Import all images for step cards
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpg,jpeg,png}",
+  { eager: true },
+);
+
+function getImage(filename: string): ImageMetadata {
+  const path = `/src/assets/images/${filename}`;
+  return imageModules[path]?.default;
+}
+---
+
+<BaseLayout
+  title="Build Guide | DIY TaTaCon"
+  description="Step-by-step guide to building your own DIY taiko drum controller."
+>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-ctp-text">
+        Build Guide
+      </h1>
+      <p class="mx-auto mt-3 max-w-xl text-lg text-ctp-subtext0">
+        Follow these steps to build your own TaTaCon from scratch.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {sortedSteps.map((step) => (
+        <div class="reveal">
+          <StepCard
+            stepNumber={step.data.stepNumber}
+            title={step.data.title}
+            description={step.data.description}
+            href={`/guide/${step.id}/`}
+            image={getImage(step.data.heroImage)}
+          />
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 flex justify-center gap-4">
+      <a
+        href="/costs/"
+        class="inline-flex items-center gap-2 rounded-full border border-ctp-surface1 px-5 py-2.5 text-sm font-medium text-ctp-text transition-all hover:border-ctp-surface2 hover:bg-ctp-surface0"
+      >
+        View Material Costs
+      </a>
+      <a
+        href="/resources/"
+        class="inline-flex items-center gap-2 rounded-full border border-ctp-surface1 px-5 py-2.5 text-sm font-medium text-ctp-text transition-all hover:border-ctp-surface2 hover:bg-ctp-surface0"
+      >
+        Resources
+      </a>
+    </div>
+  </div>
+</BaseLayout>
