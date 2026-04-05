@@ -1,0 +1,46 @@
+---
+title: "Step 7 - Firmware"
+stepNumber: 7
+shortTitle: "Firmware"
+description: "Upload the firmware to your Arduino to turn it into a working TaTaCon."
+heroImage: "Software_Setup.png"
+order: 7
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import FirmwareDownload from "../../components/FirmwareDownload.astro";
+import softwareImg from "../../assets/images/Software_Setup.png";
+
+Now that your creation looks like a TaTaCon, you need to upload the firmware to the Arduino so it acts like one!
+
+## Firmware Options
+
+There are a few firmware options available:
+
+1. **[LuiCat's ArduinoTaikoController](https://github.com/LuiCat/ArduinoTaikoController)** — The original firmware I used. However, I had issues with double inputs and misinputs.
+
+2. **[judjdigj's LeonardoTaiko](https://github.com/judjdigj/LeonardoTaiko)** — A well-developed and improved version. Recommended if you want a polished experience.
+
+3. **My custom firmware** (below) — A temporary firmware that works better for me, but note it is a work-in-progress. It features dynamic threshold adjustment and per-sensor sensitivity calibration.
+
+---
+
+## Download My Firmware
+
+<FirmwareDownload />
+
+## Setup Instructions
+
+You will need the **[Arduino IDE](https://www.arduino.cc/en/software)** to compile and upload the firmware.
+
+<Image src={softwareImg} alt="Arduino IDE software setup" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+
+<Callout type="note">
+  See [LuiCat's](https://github.com/LuiCat/ArduinoTaikoController) or [judjdigj's](https://github.com/judjdigj/LeonardoTaiko) repositories for more specific instructions until I get around to finishing this step. But if you follow either of those guides, or upload my firmware, it should be a fully functioning TaTaCon!
+</Callout>
+
+---
+
+## Happy Taikoing! 🥁
+
+Congratulations on building your own TaTaCon! If you run into any issues, feel free to [open an issue on GitHub](https://github.com/MoshirMoshir/DIY-TaTaCon/issues).

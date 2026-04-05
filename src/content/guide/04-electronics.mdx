@@ -1,0 +1,65 @@
+---
+title: "Step 4 - Electronics"
+stepNumber: 4
+shortTitle: "Electronics"
+description: "Wire up piezo sensors to the Arduino controller for drum hit detection."
+heroImage: "Piezo_Sensors.jpg"
+order: 4
+---
+import { Image } from "astro:assets";
+import Callout from "../../components/Callout.astro";
+import piezoImg from "../../assets/images/Piezo_Sensors.jpg";
+import strippingImg from "../../assets/images/Stripping.jpg";
+import splitImg from "../../assets/images/Split.jpg";
+import arduinoBackImg from "../../assets/images/Arduino_Back.jpg";
+
+Oh boy, here comes the hard part. For the electronics, you'll need:
+
+- **4 piezo sensors**
+- **Leonardo Arduino / Arduino Micro** (or knockoff)
+- **Cable** to connect Arduino to computer (typically micro-USB to USB-A)
+
+<Callout type="tip">
+  If you're tech savvy, you can also get a numpad and figure that out yourself for extra input buttons.
+</Callout>
+
+## Wiring Overview
+
+Now depending on how you're doing this, this can be pretty easy or pretty hard.
+
+Essentially, all you need to do is connect the piezo sensors to **A0-A3** (one wire from each piezo to one pin on the Arduino) and the other wire from each piezo sensor to **3.3v**. So you could just tape the wires together, or if they have proper connections, just plug them in.
+
+## Extending the Wires
+
+The issue I had is that the piezo sensors were a bit short, so I bought a set of dupont wires, cut one end off, and soldered them to the piezos to extend their length.
+
+Additionally, I cut 4 females, and soldered them all together to a male, so that way I could just plug in each piezo sensor to this wacky 1-to-4 wire connected to the ground.
+
+<div class="my-6 grid gap-4 sm:grid-cols-3">
+  <div>
+    <Image src={piezoImg} alt="Piezo sensors" widths={[300, 500]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Piezo sensors</p>
+  </div>
+  <div>
+    <Image src={strippingImg} alt="Cutting and stripping female connectors" widths={[300, 500]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">Cutting females</p>
+  </div>
+  <div>
+    <Image src={splitImg} alt="1-to-4 splitter wire" widths={[300, 500]} class="rounded-lg" loading="lazy" />
+    <p class="mt-2 text-sm text-center italic text-ctp-subtext0">1-to-4 splitter</p>
+  </div>
+</div>
+
+---
+
+## Finished Wiring
+
+By the end of all the wiring, it should look something like this:
+
+<Image src={arduinoBackImg} alt="Finished Arduino wiring" widths={[500, 900]} sizes="(max-width: 768px) 100vw, 700px" class="rounded-lg" loading="lazy" />
+
+---
+
+## Alternative: Breadboard
+
+Instead of wiring things directly to the Arduino, you could get the dupont wires and connect everything with a **breadboard**. This could be easier, as you would mostly just plug things into the breadboard — no soldering needed — but you'll need to learn how a breadboard works.

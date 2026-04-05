@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import StepCard from "../components/StepCard.astro";
+import VideoPlayer from "../components/VideoPlayer.astro";
+import { Image } from "astro:assets";
+
+import bigTataCon from "../assets/images/Big_TaTaCon.jpg";
+import smallTataCon from "../assets/images/Small_TaTaCon.jpg";
+
+// Step card data with images
+import woodImg from "../assets/images/Wood.jpg";
+import woodCutImg from "../assets/images/Wood_Cut.jpg";
+import wiresImg from "../assets/images/Wires.jpg";
+import piezoImg from "../assets/images/Piezo_Sensors.jpg";
+import assemblyImg from "../assets/images/Assembly.jpg";
+import cuttingRubberImg from "../assets/images/Cutting_Rubber.jpg";
+import softwareImg from "../assets/images/Software_Setup.png";
+
+const steps = [
+  {
+    stepNumber: 1,
+    title: "Choosing a Size",
+    description: "Decide on the diameter and wood thickness for your build.",
+    href: "/guide/01-choosing-a-size/",
+    image: woodImg,
+  },
+  {
+    stepNumber: 2,
+    title: "Cutting the Wood",
+    description: "Cut your wood panels into the Don and Ka pieces.",
+    href: "/guide/02-cutting-the-wood/",
+    image: woodCutImg,
+  },
+  {
+    stepNumber: 3,
+    title: "Drilling the Holes",
+    description: "Drill mounting holes for the screws and hardware.",
+    href: "/guide/03-drilling-holes/",
+    image: wiresImg,
+  },
+  {
+    stepNumber: 4,
+    title: "Electronics",
+    description: "Wire up piezo sensors and the Arduino controller.",
+    href: "/guide/04-electronics/",
+    image: piezoImg,
+  },
+  {
+    stepNumber: 5,
+    title: "Putting It Together",
+    description: "Assemble all pieces and attach the sensors.",
+    href: "/guide/05-assembly/",
+    image: assemblyImg,
+  },
+  {
+    stepNumber: 6,
+    title: "Final Touches",
+    description: "Add gum rubber surface and build a stand.",
+    href: "/guide/06-final-touches/",
+    image: cuttingRubberImg,
+  },
+  {
+    stepNumber: 7,
+    title: "Firmware",
+    description: "Upload the firmware to make your TaTaCon work.",
+    href: "/guide/07-firmware/",
+    image: softwareImg,
+  },
+];
+---
+
+<BaseLayout
+  title="DIY TaTaCon - Build Your Own Taiko Drum Controller"
+  description="Build a custom taiko drum controller at a fraction of the cost. Step-by-step guide with firmware, materials list, and resources."
+>
+  <Hero />
+
+  <!-- Showcase Section -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="reveal text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-ctp-text">
+        Two Builds, One Guide
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-ctp-subtext0">
+        I've built two TaTaCons &mdash; a full-size that simulates the arcade experience, and a portable one that fits in a backpack.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
+      <div class="reveal">
+        <div class="overflow-hidden rounded-xl border border-ctp-surface0 bg-ctp-mantle">
+          <Image
+            src={bigTataCon}
+            alt="The Big TaTaCon - full size arcade-style drum controller"
+            widths={[400, 700]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="aspect-video w-full object-cover"
+            loading="lazy"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-ctp-text">The Big TaTaCon</h3>
+            <p class="mt-1 text-sm text-ctp-subtext0">
+              18" diameter, 1/2" wood. Simulates the TaikoForce and arcade feel with gum rubber surface.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="overflow-hidden rounded-xl border border-ctp-surface0 bg-ctp-mantle">
+          <Image
+            src={smallTataCon}
+            alt="The Small TaTaCon - portable drum controller"
+            widths={[400, 700]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="aspect-video w-full object-cover"
+            loading="lazy"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-ctp-text">The Small TaTaCon</h3>
+            <p class="mt-1 text-sm text-ctp-subtext0">
+              12" diameter, 1/4" wood. Portable and fits on a laptop stand. Blank bottom panel for future keypad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Videos -->
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
+      <div class="reveal">
+        <VideoPlayer src="/videos/Big_Showcase.mp4" title="Big TaTaCon Showcase" vertical />
+      </div>
+      <div class="reveal">
+        <VideoPlayer src="/videos/Small_Showcase.mp4" title="Small TaTaCon Showcase" vertical />
+      </div>
+    </div>
+  </section>
+
+  <!-- Build Steps Preview -->
+  <section class="border-t border-ctp-surface0 bg-ctp-mantle/50">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-ctp-text">
+          Build Steps
+        </h2>
+        <p class="mx-auto mt-3 max-w-xl text-ctp-subtext0">
+          7 steps from raw materials to a working taiko drum controller.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {steps.map((step) => (
+          <div class="reveal">
+            <StepCard {...step} />
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <a
+          href="/guide/"
+          class="inline-flex items-center gap-2 text-sm font-medium text-ctp-blue transition-colors hover:text-ctp-sapphire"
+        >
+          View the full guide
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

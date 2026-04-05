@@ -1,0 +1,74 @@
+---
+const themes = [
+  { id: "latte", label: "Light", icon: "sun" },
+  { id: "frappe", label: "Default", icon: "moon" },
+  { id: "mocha", label: "Midnight", icon: "stars" },
+] as const;
+---
+
+<div class="relative flex items-center gap-1 rounded-full bg-ctp-surface0 p-1">
+  {themes.map((theme) => (
+    <button
+      data-theme-btn={theme.id}
+      class="theme-btn relative z-10 cursor-pointer rounded-full px-2 py-1 text-xs font-medium text-ctp-subtext0 transition-colors duration-200 hover:text-ctp-text"
+      title={`${theme.label} theme`}
+      aria-label={`Switch to ${theme.label} theme`}
+    >
+      {theme.icon === "sun" && (
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      )}
+      {theme.icon === "moon" && (
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      )}
+      {theme.icon === "stars" && (
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l1.09 3.35L16.5 6.5l-2.65 2.15L14.5 12 12 10.1 9.5 12l.65-3.35L7.5 6.5l3.41-1.15z" />
+          <path d="M5 19l.5-1.5L7 17l-1.5-.5L5 15l-.5 1.5L3 17l1.5.5z" />
+          <path d="M19 21l.5-1.5L21 19l-1.5-.5L19 17l-.5 1.5L17 19l1.5.5z" />
+        </svg>
+      )}
+    </button>
+  ))}
+</div>
+
+<script>
+  function initThemeToggle() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>("[data-theme-btn]");
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "frappe";
+
+    function setActive(theme: string) {
+      buttons.forEach((btn) => {
+        const isActive = btn.dataset.themeBtn === theme;
+        btn.classList.toggle("text-ctp-mauve", isActive);
+        btn.classList.toggle("bg-ctp-surface1", isActive);
+        btn.classList.toggle("text-ctp-subtext0", !isActive);
+      });
+    }
+
+    setActive(currentTheme);
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const theme = btn.dataset.themeBtn!;
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        setActive(theme);
+      });
+    });
+  }
+
+  initThemeToggle();
+  document.addEventListener("astro:after-swap", initThemeToggle);
+</script>
